@@ -25,3 +25,4 @@ link()
 link "bashrc" ~/.bashrc
 link "profile" ~/.profile
 link "gitconfig" ~/.gitconfig
+link "emacs" ~/.emacs
