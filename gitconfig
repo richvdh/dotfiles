@@ -1,6 +1,9 @@
 [user]
         name = Richard van der Hoff
-        email = github@rvanderhoff.org.uk
+        email = git@rvanderhoff.org.uk
+
+[credential]
+	helper = cache
 
 [color]
 	ui = auto
