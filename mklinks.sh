@@ -2,6 +2,7 @@
 
 mydir=$(dirname "$(readlink -f "$0")")
 
+set -e
 
 link()
 {
@@ -23,22 +24,27 @@ link()
     exit 1
 }
 
-copy()
+inodeno()
+{
+    ls -i "$1" | awk '{ print $1 }'
+}
+
+hardlink()
 {
     target="$mydir/$1"
     link=$2
 
     if [ ! -e "$link" ]; then 
-        cp -v "$target" "$link"
+        ln "$target" "$link"
         return
     fi
     
-    if cmp -s $link $target; then
-        echo "$link == $target already in place"
+    if [ `inodeno $link` -eq `inodeno $link` ]; then
+        echo "$link => $target already in place"
         return
     fi
 
-    echo "$link exists and is not a copy of $target" >&2
+    echo "$link exists and is not a hardlink of $target" >&2
     exit 1
 }
 
@@ -47,8 +53,8 @@ link "profile" ~/.profile
 
 case `uname -o` in
     Cygwin)
-        # can't use a copy here
-        copy "gitconfig.cygwin" ~/.gitconfig
+        # can't use a symlink here
+        hardlink "gitconfig.cygwin" ~/.gitconfig
         ;;
     *)
         link "gitconfig" ~/.gitconfig
