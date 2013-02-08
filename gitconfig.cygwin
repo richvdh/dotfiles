@@ -1,0 +1,13 @@
+# git configuration for running under a cygwin environment
+# this works, even though we use msysgit, because git looks in $HOME
+# for .gitconfig, which is left pointing at the cygwin HOME when running
+# msysgit
+
+[include]
+        path = dotfiles/gitconfig
+
+[core]
+        # we want to use cygwin's less, because msys's doesn't play well
+        # with i/o via cygwin bash. This would be the default, but for the fact
+        # that msysgit prepends `dirname argv[0]` to $PATH.
+        pager = C:/cygwin/root/bin/less.exe
