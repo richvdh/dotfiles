@@ -4,7 +4,7 @@
 # msysgit
 
 [include]
-        path = dotfiles/gitconfig
+        path = C:/Users/richard.vanderhoff/dotfiles/gitconfig.w32
 
 [core]
         # we want to use cygwin's less, because msys's doesn't play well
