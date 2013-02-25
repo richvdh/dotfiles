@@ -23,3 +23,6 @@ fi
 
 export DEBFULLNAME='Richard van der Hoff'
 export DEBEMAIL='launchpad@rvanderhoff.org.uk'
+
+# this is not the default on our cygwin installs.
+export EDITOR='edit'
