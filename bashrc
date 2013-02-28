@@ -52,14 +52,23 @@ fi
 # just turn this on; cygwin doesn't have tput -- rav
 color_prompt=yes
 
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto"
+
 . ~/dotfiles/git-prompt.sh
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;35m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+    pre_prompt="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+    GIT_PS1_SHOWCOLORHINTS=1
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
+    pre_prompt="${debian_chroot:+($debian_chroot)}\u@\h:\w"
 fi
-unset color_prompt force_color_prompt
+PROMPT_COMMAND='__git_ps1 "'$pre_prompt'" "\$ "'
+unset color_prompt force_color_prompt pre_prompt
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
