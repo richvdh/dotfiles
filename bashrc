@@ -52,21 +52,12 @@ fi
 # just turn this on; cygwin doesn't have tput -- rav
 color_prompt=yes
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWUPSTREAM="auto"
-
-. ~/dotfiles/git-prompt.sh
-
 if [ "$color_prompt" = yes ]; then
-    pre_prompt="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
     GIT_PS1_SHOWCOLORHINTS=1
 else
-    pre_prompt="${debian_chroot:+($debian_chroot)}\u@\h:\w"
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w"
 fi
-PROMPT_COMMAND='__git_ps1 "'$pre_prompt'" "\$ "'
 unset color_prompt force_color_prompt pre_prompt
 
 
@@ -115,3 +106,14 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto"
+
+. ~/dotfiles/git-prompt.sh
+PROMPT_COMMAND='__git_ps1 "'$PS1'" "\$ "'
