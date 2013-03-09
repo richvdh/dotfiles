@@ -61,4 +61,4 @@ case `uname -o` in
         ;;
 esac
 
-# link "emacs" ~/.emacs
+link "emacs" ~/.emacs
