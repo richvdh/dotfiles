@@ -24,5 +24,9 @@ fi
 export DEBFULLNAME='Richard van der Hoff'
 export DEBEMAIL='launchpad@rvanderhoff.org.uk'
 
-# this is not the default on our cygwin installs.
-export EDITOR='edit'
+# try to pick an EDITOR
+if [ -x "$HOME/bin/edit" ]; then
+    EDITOR="$HOME/bin/edit"
+elif [ -x "/usr/bin/emacs" ]; then
+    EDITOR="/usr/bin/emacs"
+fi
