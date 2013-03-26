@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 if [ -x "/usr/bin/keychain" ]; then
-    eval keychain --eval --inherit any
+    eval `keychain --eval --inherit any`
 fi
 
 # set PATH so it includes user's private bin if it exists
