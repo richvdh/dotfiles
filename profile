@@ -35,7 +35,7 @@ export LYNX_CFG=$HOME/dotfiles/lynx.cfg
 if [ -x "$HOME/bin/edit" ]; then
     EDITOR="$HOME/bin/edit"
 elif [ -x "/usr/bin/emacsclient" ]; then
-    EDITOR=/usr/bin/emacsclient
+    EDITOR=$HOME/dotfiles/emacsclient-wrapper
 elif [ -x "/usr/bin/emacs" ]; then
     EDITOR="/usr/bin/emacs"
 elif [ -x "/usr/bin/jed" ]; then
