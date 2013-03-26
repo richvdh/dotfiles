@@ -17,4 +17,6 @@
 
 [push]
         # make git only push the current branch by default
-        default = upstream
+        # tracking, rather than upstream, for compat with git 1.7.2
+        # (they are synonyms)
+        default = tracking

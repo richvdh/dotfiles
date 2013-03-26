@@ -62,3 +62,6 @@ case `uname -o` in
 esac
 
 link "emacs" ~/.emacs
+link "inputrc" ~/.inputrc
+link "lynxrc" ~/.lynxrc
+
