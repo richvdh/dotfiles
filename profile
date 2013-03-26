@@ -27,6 +27,8 @@ export DEBEMAIL='launchpad@rvanderhoff.org.uk'
 # try to pick an EDITOR
 if [ -x "$HOME/bin/edit" ]; then
     EDITOR="$HOME/bin/edit"
+elif [ -x "/usr/bin/emacsclient" ]; then
+    EDITOR=/usr/bin/emacsclient
 elif [ -x "/usr/bin/emacs" ]; then
     EDITOR="/usr/bin/emacs"
 fi
