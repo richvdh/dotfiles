@@ -42,3 +42,6 @@ elif [ -x "/usr/bin/jed" ]; then
     EDITOR="/usr/bin/jed"
 fi
 
+export EDITOR
+
+export IPOD_MOUNTPOINT=/media/RICHARD\'S\ I
