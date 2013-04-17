@@ -1,11 +1,4 @@
-;; keep this early
-
-;(and
-;  (string-match "XEmacs" emacs-version)
-;  (gnuserv-start))
-
 (set-face-background 'default "black")
-
 
 (setq load-path (nconc '("~/lisp" "H:\\lisp") load-path))
 
@@ -276,15 +269,22 @@
    (interactive "*p")
    (yank-pop (- arg)))
 
-(defun clipboard-yank ()
-   "yank the current clipboard"
-   (interactive)
-   (case (device-type)
-;     (x (x-yank-function))
-     (x (mouse-consolidated-yank))
-     (tty (yank))
-     (mswindows (mswindows-paste-clipboard))
-     (otherwise (yank))))
+
+; this doesn't work on emacs 23.3 (no device-type or mouse-consolidated-yank)
+; and anyway, yank seems to do the right thing (ie, paste the primary
+; selection).
+;
+; Meta-w (kill-ring-save) also does the right thing (claims the X 'clipboard').
+
+;(defun clipboard-yank ()
+;   "yank the current clipboard"
+;   (interactive)
+;   (case (device-type)
+;;     (x (x-yank-function))
+;     (x (mouse-consolidated-yank))
+;     (tty (yank))
+;     (mswindows (mswindows-paste-clipboard))
+;     (otherwise (yank))))
 
 
 
@@ -318,7 +318,7 @@
   (global-set-key "\C-x\M-f"		'auto-fill-mode)
 
   ; shift-insert doesn't get the X selection by default
-  (global-set-key [(shift insert)]	    'clipboard-yank)
+;  (global-set-key [(shift insert)]	    'clipboard-yank)
   )
 
  ( t
@@ -348,7 +348,7 @@
   (global-set-key "\M-`"	        'compile)
   (global-set-key "\C-x\C-b"		'electric-buffer-list)
   (global-set-key "\C-x\M-f"		'auto-fill-mode)
-  (global-set-key [S-insert]		'clipboard-yank)
+;  (global-set-key [S-insert]		'clipboard-yank)
 
   (global-set-key "\M-g"                'goto-line)
   ))
