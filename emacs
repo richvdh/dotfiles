@@ -1,11 +1,10 @@
 (set-face-background 'default "black")
+(set-face-foreground 'default "white")
 
-(setq load-path (nconc '("~/lisp" "H:\\lisp") load-path))
-
-(load "utils")
-(load "kill-ring")
-(load "vc")
-(autoload 'ast-mode "ast-mode")
+;(setq load-path (nconc '("~/lisp" "H:\\lisp") load-path))
+;(load "utils")
+;(load "kill-ring")
+;(load "vc")
 
 ;; file recognition
 (setq auto-mode-alist
@@ -14,8 +13,6 @@
 	 ( "[]>:/]\\.gnus\\'" . emacs-lisp-mode )
 	 ( "\\.[vV]\\'" . verilog-mode )
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
-	 ( "\\.\\(ast\\|ah\\)\\'" . ast-mode )
-	 ( "\\.rno\\'" . rno-mode )
 	 ( "\\.asm\\'" . asm-mode )
 	 ( "\\.ph\\'" . cperl-mode )
 	 ) auto-mode-alist))
