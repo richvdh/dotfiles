@@ -64,4 +64,4 @@ esac
 link "emacs" ~/.emacs
 link "inputrc" ~/.inputrc
 link "lynxrc" ~/.lynxrc
-
+link "ssh_config" ~/.ssh/config

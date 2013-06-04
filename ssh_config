@@ -1,0 +1,2 @@
+Host *.sw1v.org
+     ForwardAgent yes
