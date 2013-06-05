@@ -1,1 +1,2 @@
-ForwardAgent yes
+Host *.sw1v.org *.swiftserve.com 19cw faith
+     ForwardAgent yes
