@@ -117,3 +117,5 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 . ~/dotfiles/git-prompt.sh
 PROMPT_COMMAND='__git_ps1 "'$PS1'" "\$ "'
+
+stty -ixon
