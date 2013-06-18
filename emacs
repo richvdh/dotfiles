@@ -1,10 +1,6 @@
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
-
-;(setq load-path (nconc '("~/lisp" "H:\\lisp") load-path))
-;(load "utils")
-;(load "kill-ring")
-;(load "vc")
+(set-face-attribute 'default nil :height 80)
 
 ;; file recognition
 (setq auto-mode-alist
@@ -18,7 +14,6 @@
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -128,82 +123,6 @@
        (provide 'html-helper-mode)
        ))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-; terminal hooks
-
-; make meta work on pct
-(defun init-term ()
-  (set-input-mode nil nil t)
-  (define-key function-key-map "\e[1~" [home])
-  (define-key function-key-map "\e[4~" [end])
-)
-
-(add-hook 'create-console-hook
-	  (lambda (console)
-	    (select-console console)
-	    (init-term)
-	    ))
-(add-hook 'term-setup-hook 'init-term)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-( cond
-  (( string-match "XEmacs" emacs-version)
-   ; only for xemacs
-   ( line-number-mode t )
-   ( column-number-mode t )
-
-   ( cond
-     (( not (eq system-type 'windows-nt ))
-      ; replace x colours with nearby vt100 ones
-      ( register-tty-color "dodgerblue" "\e[1;34m" "\e[0;44m" )  ; dodgerblue -> bold blue
-      ( register-tty-color "lightcoral" "\e[1;31m" "\e[0;41m" )  ; light coral -> bold red
-      ( register-tty-color "lightpink" "\e[1;31m" "\e[0;41m" )   ; lightpink -> bold red
-     ))
-
-   ; site-dependent stuff
-   (setq domainname (exec-to-string "hostname -d"))
-   (cond 
-    ((or
-      (string-match "^tarragon-et" domainname)
-      (string-match "^h901" domainname)  ; pct 
-      )
-     (set-variable 'user-mail-address "r.vanderhoff@tarragon-et.co.uk")
-     (set-face-font 'default      "-*-fixed-medium-r-*-*-*-120-*-*-*-*-iso8859-1" )
-     (set-face-font 'bold         "-*-fixed-bold-r-*-*-*-120-*-*-*-*-iso8859-1" )
-     (set-face-font 'bold-italic  "-*-courier-bold-o-*-*-*-100-*-*-*-*-iso8859-1" )
-     (set-face-font 'italic       "-*-courier-medium-o-*-*-*-100-*-*-*-*-iso8859-1" )
-
-     ; make meta work properly on pct
-     ( set-input-mode nil nil t )
-     )
-    ((string-match "^techiehouse" domainname)
-     (set-variable 'user-mail-address "richard@rvanderhoff.org.uk")
-     (set-face-font 'default      "-*-fixed-medium-r-*-*-*-120-*-*-*-*-iso8859-15" )
-     (set-face-font 'bold         "-*-fixed-bold-r-*-*-*-120-*-*-*-*-iso8859-15" )
-     (set-face-font 'bold-italic  "-*-courier-bold-o-*-*-*-100-*-*-*-*-iso8859-15" )
-     (set-face-font 'italic       "-*-courier-medium-o-*-*-*-100-*-*-*-*-iso8859-15" )
-     ))
-
-   )
-  (( >= emacs-major-version 20 )
-   ; only for recent emacs - done with options file for xemacs
-   ( global-font-lock-mode t )
-   ( show-paren-mode t ))
-
-
-  (t
-   ; hack other emacsen for font lock
-   (defun turn-on-fontlock-mode ()
-     (font-lock-mode t))
-
-   (mapcar (lambda (HOOK)
-	     (add-hook HOOK 'turn-on-fontlock-mode))
-	   '(c-mode-common-hook asm-mode-hook emacs-lisp-mode-hook )))
-)
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; scrolling with mouse
@@ -217,7 +136,6 @@
      )
    )
 )
-
 
 (defun scroll-up-with-mouse ( dist )
   "Scroll the window where the last input event occured up by dist lines"
@@ -362,9 +280,6 @@
 (if (not (fboundp 'custom-set-faces))
   (defun custom-set-faces (&rest args)))
 
-( set-face-foreground 'default "white" )
-
-
 ;;;;;;;;;;;;;;
 ;
 ; tab stuff
@@ -376,7 +291,7 @@
   "Set tab-width to width and set tab-stop-list to stops every width chars"
   (interactive "Nwidth: ")
   (setq tab-width width )
-  (setq tab-stop-list (range tab-width 132 tab-width )))
+  (setq tab-stop-list (number-sequence tab-width 132 tab-width)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -482,9 +397,3 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(load-home-init-file t t))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
