@@ -20,3 +20,9 @@
         # tracking, rather than upstream, for compat with git 1.7.2
         # (they are synonyms)
         default = tracking
+
+
+# this won't work on git < 1.7.10, but is harmless on older versions
+# (as indeed it is if the included file is missing)
+[include]
+        path = ~/.gitconfig.local
