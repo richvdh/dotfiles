@@ -7,15 +7,15 @@
       (append
        '(
 	 ( "[]>:/]\\.gnus\\'" . emacs-lisp-mode )
-	 ( "\\'emacs\\'" . emacs-lisp-mode )
+	 ( "emacs\\'" . emacs-lisp-mode )
 	 ( "\\.[vV]\\'" . verilog-mode )
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
 	 ( "\\.asm\\'" . asm-mode )
 	 ( "\\.ph\\'" . cperl-mode )
-         ( "\\'SConstruct\\'" . python-mode )
-         ( "\\'SConscript\\'" . python-mode )
-         ( "\\'README\\'" . text-mode )
-         ( "\\'COMMIT_EDITMSG\\'" . text-mode )
+         ( "SConstruct\\'" . python-mode )
+         ( "SConscript\\'" . python-mode )
+         ( "README\\'" . text-mode )
+         ( "COMMIT_EDITMSG\\'" . text-mode )
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
