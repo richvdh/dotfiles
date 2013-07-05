@@ -7,10 +7,15 @@
       (append
        '(
 	 ( "[]>:/]\\.gnus\\'" . emacs-lisp-mode )
+	 ( "\\'emacs\\'" . emacs-lisp-mode )
 	 ( "\\.[vV]\\'" . verilog-mode )
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
 	 ( "\\.asm\\'" . asm-mode )
 	 ( "\\.ph\\'" . cperl-mode )
+         ( "\\'SConstruct\\'" . python-mode )
+         ( "\\'SConscript\\'" . python-mode )
+         ( "\\'README\\'" . text-mode )
+         ( "\\'COMMIT_EDITMSG\\'" . text-mode )
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
@@ -39,7 +44,7 @@
 				      (knr-argdecl-intro . 0)
 				      (comment-intro     . 0)
 				      (inline-open       . 0)
-				      (access-label      . 0)
+				      (access-label      . -2)
 				      (case-label		. +)))
     (c-echo-syntactic-information-p . t)
     (c-basic-offset                 . 4)
