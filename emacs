@@ -2,6 +2,11 @@
 (set-face-foreground 'default "white")
 (set-face-attribute 'default nil :height 80)
 
+(add-to-list 'load-path "~/dotfiles/elisp")
+
+;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
+(load-file (expand-file-name "~/dotfiles/elisp/loaddefs.el"))
+
 ;; file recognition
 (setq auto-mode-alist
       (append
@@ -45,7 +50,9 @@
 				      (comment-intro     . 0)
 				      (inline-open       . 0)
 				      (access-label      . -2)
-				      (case-label		. +)))
+				      (case-label        . +)
+                                      (innamespace       . 0)
+                                      ))
     (c-echo-syntactic-information-p . t)
     (c-basic-offset                 . 4)
     (truncate-lines		    . t)
@@ -63,10 +70,11 @@
 		(set-tab-width 8)
 	    (c-add-style "PERSONAL" my-c-style t)
 	    (auto-fill-mode t)
+            (redspace-mode t)
 	    (define-key c-mode-map "\^M" 'newline-and-indent)
 	    (define-key c-mode-map [(control meta prior)] 'c-beginning-of-defun)
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
-))
+            ))
 
 (add-hook 'cperl-mode-hook
 	  (lambda ()
@@ -76,6 +84,7 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
+            (redspace-mode t)
 	    (setq truncate-lines t )))
 
 (add-hook 'html-mode-hook 
@@ -109,16 +118,6 @@
   (interactive)
   (and font-lock-mode
        (font-lock-fontify-buffer)))
-
-; a pseudo-mode for editing rno files in
-; just uses fundamental mode with a few tweaks.
-(defun rno-mode ()
-  (interactive)
-  (fundamental-mode)
-  (setq fill-column 128)
-  (auto-fill-mode)
-)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
