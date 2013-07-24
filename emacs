@@ -24,13 +24,14 @@
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
+(redspace-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Customizations for all of c-mode, c++-mode, and objc-mode
 
 
-(defconst my-c-style 
+(defconst my-c-style
   '((c-tab-always-indent           . t)
     (c-comment-only-line-offset    . 0)
     (c-hanging-braces-alist        . ((substatement-open after)
@@ -64,13 +65,12 @@
 
 ; mode-specific hooks
 
-(add-hook 'c-mode-common-hook 
+(add-hook 'c-mode-common-hook
 	  (lambda ()
 	    ;; add my personal style and set it for the current buffer
 		(set-tab-width 8)
 	    (c-add-style "PERSONAL" my-c-style t)
 	    (auto-fill-mode t)
-            (redspace-mode t)
 	    (define-key c-mode-map "\^M" 'newline-and-indent)
 	    (define-key c-mode-map [(control meta prior)] 'c-beginning-of-defun)
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
@@ -84,10 +84,9 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
-            (redspace-mode t)
 	    (setq truncate-lines t )))
 
-(add-hook 'html-mode-hook 
+(add-hook 'html-mode-hook
 	  (lambda ()
 	    (auto-fill-mode 1)))
 
@@ -96,7 +95,7 @@
 	    (define-key java-mode-map "\C-m" 'newline-and-indent)))
 
 (add-hook 'latex-mode-hook
-	  (lambda () 
+	  (lambda ()
 	    (auto-fill-mode 1)
 	    (ispell-minor-mode))
 	  )
@@ -401,3 +400,9 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(load-home-init-file t t))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
