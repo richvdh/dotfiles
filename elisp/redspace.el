@@ -67,7 +67,7 @@ Return t if it has at least one redspace overlay, nil if no overlay."
       (delete-overlay ol))))
 
 (defun redspace-starttimer()
-  (setq redspace-timer (run-with-timer 1 5 'redspace-check-buffer)))
+  (setq redspace-timer (run-with-timer 1 1 'redspace-check-buffer)))
 
 (defun redspace-killtimer()
   (cancel-timer redspace-timer))
