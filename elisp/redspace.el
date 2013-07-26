@@ -75,12 +75,12 @@ Return t if it has at least one redspace overlay, nil if no overlay."
 (defun redspace-check-buffer()
   (interactive)
   (redspace-delete-own-overlays)
-(save-excursion
-  (goto-char (point-min))
-  (while (re-search-forward "[ +|\t+]$" (point-max) t)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t]$" (point-max) t)
       (let (e)
 	(setq e (point))
-	(while (looking-back "[ +|\t+]")
+	(while (looking-back "[ \t]")
 	  (backward-char)
 	  )
 	(redspace-make-overlay (point) e)
