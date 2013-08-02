@@ -17,6 +17,7 @@
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
 	 ( "\\.asm\\'" . asm-mode )
 	 ( "\\.ph\\'" . cperl-mode )
+         ( "\\.ipp\\'" . c++-mode )
          ( "SConstruct\\'" . python-mode )
          ( "SConscript\\'" . python-mode )
          ( "README\\'" . text-mode )
@@ -151,7 +152,7 @@
        (select-window curwin)
        ( error "%s" ( car err ))
        ))
-    (select-window curwin) 
+    (select-window curwin)
     )
 )
 
