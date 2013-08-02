@@ -44,4 +44,9 @@ fi
 
 export EDITOR
 
+
+if [ -f $HOME/dotfiles/profile.$HOSTNAME ]; then
+   . $HOME/dotfiles/profile.$HOSTNAME
+fi
+
 export IPOD_MOUNTPOINT=/media/RICHARD\'S\ I
