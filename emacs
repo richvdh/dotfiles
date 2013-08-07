@@ -27,6 +27,9 @@
 (setq make-backup-files nil)
 (redspace-mode t)
 
+(if (fboundp 'set-scroll-bar-mode)  ; not on xemacs, apparently
+    (set-scroll-bar-mode 'right))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;; Customizations for all of c-mode, c++-mode, and objc-mode
