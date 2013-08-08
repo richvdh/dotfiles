@@ -273,6 +273,12 @@
 ;  (global-set-key [S-insert]		'clipboard-yank)
 
   (global-set-key "\M-g"                'goto-line)
+
+  ; windows-up/down/left/right - change window
+  (global-set-key [s-up]                'windmove-up)
+  (global-set-key [s-down]              'windmove-down)
+  (global-set-key [s-left]              'windmove-left)
+  (global-set-key [s-right]             'windmove-right)
   ))
 
 
