@@ -3,6 +3,9 @@ ignore=$HOME/dotfiles/hgrc/hgignore
 
 [extensions]
 rebase =
+transplant =
+mq =
+graphlog =
 
 %include $HG_LOCAL_CONFIG
 
