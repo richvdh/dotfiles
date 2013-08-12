@@ -1,0 +1,8 @@
+[ui]
+ignore=$HOME/dotfiles/hgrc/hgignore
+
+[extensions]
+rebase =
+
+%include $HG_LOCAL_CONFIG
+
