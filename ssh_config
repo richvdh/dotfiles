@@ -1,6 +1,11 @@
 Host *.sw1v.org *.swiftserve.com 19cw faith
      ForwardAgent yes
 
+Host martinbrock.org
+     User richard
+     ForwardAgent yes
+
+
 Host serv1
      HostName %h.sys.swiftserve.com
      ForwardAgent yes
