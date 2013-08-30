@@ -1,3 +1,6 @@
+; something, somewhere, resets the default of auto-fill-function to c-do-auto-fill.
+; (setq-default auto-fill-function nil)
+
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
 (set-face-attribute 'default nil :height 80)
@@ -29,6 +32,7 @@
 
 (if (fboundp 'set-scroll-bar-mode)  ; not on xemacs, apparently
     (set-scroll-bar-mode 'right))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -110,7 +114,7 @@
 	    (ispell-minor-mode))
 	  )
 
-(add-hook 'verilog-mode-hook 
+(add-hook 'verilog-mode-hook
 	  (lambda ()
 	    (set-tab-width 4)
 	    (setq verilog-indent-level 4
