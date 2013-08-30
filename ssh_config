@@ -10,6 +10,9 @@ Host serv1
      HostName %h.sys.swiftserve.com
      ForwardAgent yes
 
-Host ca1.staging ca1.testing
+Host ca1.staging ca1.testing da1.testing
      User root
      Port 2222
+
+Host da1.staging
+     User root
