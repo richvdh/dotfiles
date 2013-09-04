@@ -3,7 +3,10 @@
 
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
-(set-face-attribute 'default nil :height 80)
+
+; nb anything smaller than 100 is painful on tara - maybe need to set this
+; per-machine?
+(set-face-attribute 'default nil :height 100)
 
 (add-to-list 'load-path "~/dotfiles/elisp")
 
