@@ -3,15 +3,12 @@
 
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
+(set-face-attribute 'default nil :height 130)
 
-; nb anything smaller than 100 is painful on tara - maybe need to set this
-; per-machine?
-(set-face-attribute 'default nil :height 100)
-
-(add-to-list 'load-path "~/dotfiles/elisp")
+(add-to-list 'load-path "~/dotfiles/emacs.d/packages")
 
 ;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
-(load-file (expand-file-name "~/dotfiles/elisp/loaddefs.el"))
+(load-file (expand-file-name "~/dotfiles/emacs.d/packages/loaddefs.el"))
 
 ;; file recognition
 (setq auto-mode-alist
@@ -32,6 +29,10 @@
 
 (setq make-backup-files nil)
 (redspace-mode t)
+
+; wtf does this do?
+(setq minibuffer-max-depth nil)
+
 
 (if (fboundp 'set-scroll-bar-mode)  ; not on xemacs, apparently
     (set-scroll-bar-mode 'right))
@@ -387,27 +388,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
-; automatic stuff follows - don't fiddle!
+; customisation stuff
 
-
-;; Options Menu Settings
-;; =====================
-(cond
- ((and (string-match "XEmacs" emacs-version)
-       (boundp 'emacs-major-version)
-       (or (and
-            (= emacs-major-version 19)
-            (>= emacs-minor-version 14))
-           (= emacs-major-version 20))
-       (fboundp 'load-options-file))
-  (load-options-file "~/.xemacs-options")))
-;; ============================
-;; End of Options Menu Settings
-
-
-
-
-(setq minibuffer-max-depth nil)
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -423,3 +405,9 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+
+;; load custom per-host files
+(let ((host-file (format "~/dotfiles/emacs.d/hosts/%s.el" system-name)))
+  (if (file-exists-p host-file)
+      (load host-file)))
