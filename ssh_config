@@ -9,6 +9,14 @@ Host serv1
      HostName %h.sys.swiftserve.com
      ForwardAgent yes
 
+Host buildslave
+     HostName swiftserve2-autobuild.dev.swiftserve.com
+     User root
+
+Host buildslave-rpm
+     HostName swiftserve2-autobuild-centos.dev.swiftserve.com
+     User root
+
 Host ca1.staging ca2.staging ca1.testing ca2.testing da1.testing portal.testing
      User root
      Port 2222
