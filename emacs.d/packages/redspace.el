@@ -74,17 +74,20 @@ Return t if it has at least one redspace overlay, nil if no overlay."
 
 (defun redspace-check-buffer()
   (interactive)
-  (redspace-delete-own-overlays)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t]$" (point-max) t)
-      (let (e)
-	(setq e (point))
-	(while (looking-back "[ \t]")
-	  (backward-char)
-	  )
-	(redspace-make-overlay (point) e)
-	(end-of-line)))))
+  ; we disable the redspace checks when in a minibuffer, as it seems to
+  ; lead to emacs crashes.
+  (when (not (window-minibuffer-p))
+    (redspace-delete-own-overlays)
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "[ \t]$" (point-max) t)
+        (let (e)
+          (setq e (point))
+          (while (looking-back "[ \t]")
+            (backward-char)
+            )
+          (redspace-make-overlay (point) e)
+          (end-of-line))))))
 
 ;;;###autoload
 (define-minor-mode redspace-mode
