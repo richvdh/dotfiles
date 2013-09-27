@@ -377,15 +377,6 @@
           (y-or-n-p (format "`%s' does not exist, create? " (ad-get-arg 0))))
       ad-do-it))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-; handy kbd macros
-;
-(defalias 'insert-preprocess-lines (read-kbd-macro
-"PREPROCESS_ C-SPC C-e M-u 4*<backspace> =cat C-a C-SPC <down> M-w C-y <up> 3*<right> 2*<backspace> OST <down> C-a"))
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;
 ; customisation stuff
