@@ -7,5 +7,5 @@ transplant =
 mq =
 graphlog =
 
-%include $HG_LOCAL_CONFIG
+%include $HOME/dotfiles/hgrc/$HOSTNAME.rc
 

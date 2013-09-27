@@ -44,12 +44,9 @@ fi
 
 export EDITOR
 
-
+export HOSTNAME=`hostname`
 if [ -f $HOME/dotfiles/profile.$HOSTNAME ]; then
    . $HOME/dotfiles/profile.$HOSTNAME
 fi
 
 export IPOD_MOUNTPOINT=/media/RICHARD\'S\ I
-
-# HOSTNAME isn't exported, so we can't do this expansion in ~/.hgrc
-export HG_LOCAL_CONFIG="$HOME/dotfiles/hgrc/$HOSTNAME.rc"
