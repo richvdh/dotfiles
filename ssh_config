@@ -12,14 +12,18 @@ Host serv1
 Host buildslave
      HostName swiftserve2-autobuild.dev.swiftserve.com
      User root
+     ForwardAgent yes
 
 Host buildslave-rpm
      HostName swiftserve2-autobuild-centos.dev.swiftserve.com
      User root
+     ForwardAgent yes
 
 Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing
      User root
      Port 2222
+     ForwardAgent yes
 
 Host da1.staging
      User root
+     ForwardAgent yes
