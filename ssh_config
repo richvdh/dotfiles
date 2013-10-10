@@ -1,4 +1,4 @@
-Host *.sw1v.org *.swiftserve.com 19cw faith
+Host *.sw1v.org *.swiftserve.com 19cw faith richard
      ForwardAgent yes
 
 Host martinbrock.org
