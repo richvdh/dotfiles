@@ -19,11 +19,7 @@ Host buildslave-rpm
      User root
      ForwardAgent yes
 
-Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing log1.testing da1.sprinting
+Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing log1.testing ca1.sprinting ca2.sprinting da1.sprinting portal.sprinting
      User root
      Port 2222
-     ForwardAgent yes
-
-Host da1.staging
-     User root
      ForwardAgent yes
