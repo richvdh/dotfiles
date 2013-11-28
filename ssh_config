@@ -24,8 +24,7 @@ Host ssbuild1 ssbuild2
      User buildslave
      ForwardAgent yes
 
-
-Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing log1.testing ca1.sprinting ca2.sprinting da1.sprinting portal.sprinting
+Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing log1.testing reporting.testing ca1.sprinting ca2.sprinting da1.sprinting portal.sprinting log1.sprinting reporting.sprinting
      User root
      Port 2222
      ForwardAgent yes
