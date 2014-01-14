@@ -9,6 +9,9 @@ Host serv1
      HostName %h.sys.swiftserve.com
      ForwardAgent yes
 
+Host dev
+     HostName 192.168.2.200
+
 Host buildslave
      HostName swiftserve2-autobuild.dev.swiftserve.com
      User root
@@ -24,7 +27,15 @@ Host ssbuild1 ssbuild2
      User buildslave
      ForwardAgent yes
 
-Host ca1.staging ca2.staging da1.staging ca1.testing ca2.testing da1.testing portal.testing log1.testing reporting.testing ca1.sprinting ca2.sprinting da1.sprinting portal.sprinting log1.sprinting reporting.sprinting
+Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw?
      User root
      Port 2222
      ForwardAgent yes
+
+Host 192.168.62.*
+     ProxyCommand ssh dev nc "%h" "%p"
+
+Host 192.168.62.10
+     User Administrator
+
+
