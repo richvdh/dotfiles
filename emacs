@@ -10,6 +10,9 @@
 ;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
 (load-file (expand-file-name "~/dotfiles/emacs.d/packages/loaddefs.el"))
 
+(load-file (expand-file-name
+            "~/dotfiles/emacs.d/packages/Emacs-Groovy-Mode/groovy-mode.el"))
+
 ;; file recognition
 (setq auto-mode-alist
       (append

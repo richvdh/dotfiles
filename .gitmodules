@@ -1,0 +1,3 @@
+[submodule "emacs.d/packages/Emacs-Groovy-Mode"]
+	path = emacs.d/packages/Emacs-Groovy-Mode
+	url = https://github.com/russel/Emacs-Groovy-Mode.git
