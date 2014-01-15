@@ -11,6 +11,7 @@ Host serv1
 
 Host dev
      HostName 192.168.2.200
+     ForwardAgent yes
 
 Host buildslave
      HostName swiftserve2-autobuild.dev.swiftserve.com
@@ -34,6 +35,7 @@ Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw?
 
 Host 192.168.62.*
      ProxyCommand ssh dev nc "%h" "%p"
+     ForwardAgent yes
 
 Host 192.168.62.10
      User Administrator
