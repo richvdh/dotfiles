@@ -28,7 +28,7 @@ Host ssbuild1 ssbuild2
      User buildslave
      ForwardAgent yes
 
-Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw?
+Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.in? *.in?? *.hk?
      User root
      Port 2222
      ForwardAgent yes
