@@ -33,6 +33,10 @@ Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.in? *.in?? 
      Port 2222
      ForwardAgent yes
 
+Host *.log *.sys
+     User root
+     ForwardAgent yes
+
 Host 192.168.62.*
      ProxyCommand ssh dev nc "%h" "%p"
      ForwardAgent yes
