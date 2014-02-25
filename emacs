@@ -5,13 +5,17 @@
 (set-face-foreground 'default "white")
 (set-face-attribute 'default nil :height 130)
 
-(add-to-list 'load-path "~/dotfiles/emacs.d/packages")
+(nconc load-path (mapcar 'expand-file-name
+                         '("~/dotfiles/emacs.d/packages"
+                           "~/dotfiles/emacs.d/packages/puppet-syntax-emacs")))
+
 
 ;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
-(load-file (expand-file-name "~/dotfiles/emacs.d/packages/loaddefs.el"))
-
-(load-file (expand-file-name
-            "~/dotfiles/emacs.d/packages/Emacs-Groovy-Mode/groovy-mode.el"))
+(mapc (lambda(x) (load-file (expand-file-name x)))
+      '("~/dotfiles/emacs.d/packages/loaddefs.el"
+        "~/dotfiles/emacs.d/packages/Emacs-Groovy-Mode/groovy-mode.el"
+        "~/dotfiles/emacs.d/packages/puppet-syntax-emacs/puppet-mode-init.el")
+)
 
 ;; file recognition
 (setq auto-mode-alist

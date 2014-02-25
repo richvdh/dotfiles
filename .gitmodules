@@ -1,3 +1,6 @@
 [submodule "emacs.d/packages/Emacs-Groovy-Mode"]
 	path = emacs.d/packages/Emacs-Groovy-Mode
 	url = https://github.com/russel/Emacs-Groovy-Mode.git
+[submodule "emacs.d/packages/puppet-syntax-emacs"]
+	path = emacs.d/packages/puppet-syntax-emacs
+	url = https://github.com/puppetlabs/puppet-syntax-emacs.git
