@@ -28,20 +28,21 @@ Host ssbuild1 ssbuild2
      User buildslave
      ForwardAgent yes
 
-Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.in? *.in?? *.hk?
+Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.usw? *.vn?
      User root
      Port 2222
      ForwardAgent yes
+     StrictHostKeyChecking no
 
 Host *.log *.sys
      User root
      ForwardAgent yes
 
-Host 192.168.62.*
-     ProxyCommand ssh dev nc "%h" "%p"
-     ForwardAgent yes
+Host 192.168.62.100
+     User root
 
 Host 192.168.62.10
      User Administrator
 
-
+Host router
+     User root
