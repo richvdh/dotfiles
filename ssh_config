@@ -28,20 +28,24 @@ Host ssbuild1 ssbuild2
      User buildslave
      ForwardAgent yes
 
-Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.usw? *.vn?
+Host provisioning
+     ForwardAgent yes
+
+Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.usw? *.vn? portal provisioning
      User root
      Port 2222
      ForwardAgent yes
-     StrictHostKeyChecking no
 
 Host *.log *.sys
      User root
      ForwardAgent yes
 
-Host 192.168.62.100
+Host 192.168.62.*
      User root
+     StrictHostKeyChecking no
+     UserKnownHostsFile /dev/null
 
-Host 192.168.62.10
+Host 192.168.1.10 alucache2ilo
      User Administrator
 
 Host router
