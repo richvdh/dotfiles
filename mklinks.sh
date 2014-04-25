@@ -48,6 +48,7 @@ hardlink()
     exit 1
 }
 
+link "bash_aliases" ~/.bash_aliases
 link "bashrc" ~/.bashrc
 link "profile" ~/.profile
 
