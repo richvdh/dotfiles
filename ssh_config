@@ -36,6 +36,12 @@ Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? 
      Port 2222
      ForwardAgent yes
 
+Host puppet.staging
+     User admin
+     Port 22
+     ForwardAgent yes
+
+
 Host *.log *.sys
      User root
      ForwardAgent yes
@@ -50,3 +56,7 @@ Host 192.168.1.10 alucache2ilo
 
 Host router
      User root
+
+Host testvmhost1
+     User root
+     ForwardX11 yes
