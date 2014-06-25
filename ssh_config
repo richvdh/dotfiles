@@ -31,16 +31,20 @@ Host ssbuild1 ssbuild2
 Host provisioning
      ForwardAgent yes
 
-Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.usw? *.vn? portal provisioning
-     User root
-     Port 2222
-     ForwardAgent yes
-
 Host puppet.staging
      User admin
      Port 22
      ForwardAgent yes
 
+Host analytics.testing
+     User root
+     Port 22
+     ForwardAgent yes
+
+Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning
+     User root
+     Port 2222
+     ForwardAgent yes
 
 Host *.log *.sys
      User root
