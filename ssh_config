@@ -41,7 +41,7 @@ Host analytics.testing
      Port 22
      ForwardAgent yes
 
-Host *.staging *.testing *.sprinting *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning
+Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning
      User root
      Port 2222
      ForwardAgent yes
@@ -64,3 +64,30 @@ Host router
 Host testvmhost1
      User root
      ForwardX11 yes
+
+Host ubuntu ubuntu1310
+     User eng
+     HostName %h.testvm.swift
+     ForwardAgent yes
+     ForwardX11 yes
+
+Host conversant
+    User adam
+    Hostname 116.12.172.141
+    Port 8022
+    ForwardAgent yes
+
+Host sellyoak
+    User versio4
+    Port 22
+    Hostname 116.12.172.137
+    ForwardAgent yes
+
+Host ca1.sg1 ca2.sg1
+    ProxyCommand ssh sellyoak nc %h %p
+
+Host ca1.sg1
+    Hostname 172.16.1.30
+
+Host ca2.sg1
+    Hostname 172.16.1.31
