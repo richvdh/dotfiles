@@ -397,7 +397,9 @@
  '(fill-column 80)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(load-home-init-file t t))
+ '(load-home-init-file t t)
+ '(puppet-include-indent 4)
+ '(puppet-indent-level 4))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
