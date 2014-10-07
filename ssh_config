@@ -5,7 +5,7 @@ Host martinbrock.org
      User richard
      ForwardAgent yes
 
-Host serv1
+Host serv1 serv5
      HostName %h.sys.swiftserve.com
      ForwardAgent yes
 
@@ -13,38 +13,22 @@ Host dev
      HostName 192.168.2.200
      ForwardAgent yes
 
-Host buildslave
-     HostName swiftserve2-autobuild.dev.swiftserve.com
-     User root
-     ForwardAgent yes
-
-Host buildslave-rpm
-     HostName swiftserve2-autobuild-centos.dev.swiftserve.com
-     User root
-     ForwardAgent yes
-
 Host ssbuild1 ssbuild2
      HostName %h.dev.swiftserve.com
-     User buildslave
+     User jenkins
      ForwardAgent yes
 
-Host provisioning
-     ForwardAgent yes
-
-Host puppet.staging
-     User admin
-     Port 22
-     ForwardAgent yes
-
-Host analytics.testing
-     User root
-     Port 22
-     ForwardAgent yes
-
-Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de? *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning
+# Exclude pa? from sg? pattern
+Host *.staging *.testing *.sprinting *.wip *.gb? ca?.sg? da?.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning puppet.dev puppet1.sys elk?.dev
      User root
      Port 2222
      ForwardAgent yes
+
+Host *.th8 *.th9 *.th30
+    ProxyCommand ssh provisioning nc %h %p
+
+Host pa?.sg?
+     User nsroot
 
 Host *.log *.sys
      User root
@@ -61,14 +45,14 @@ Host 192.168.1.10 alucache2ilo
 Host router
      User root
 
-Host testvmhost1
-     User root
-     ForwardX11 yes
-
-Host ubuntu ubuntu1310
-     User eng
+Host ubuntu ubuntu2 lxctesthost
      HostName %h.testvm.swift
+
+Host ubuntu ubuntu2 testvmhost1.swift lxctesthost ssbuildhost?.swift
+     User root
      ForwardAgent yes
+
+Host testvmhost1.swift
      ForwardX11 yes
 
 Host conversant
@@ -91,3 +75,13 @@ Host ca1.sg1
 
 Host ca2.sg1
     Hostname 172.16.1.31
+
+Host netscaler
+    Hostname 203.116.18.250
+    User nsroot
+
+Host nstest.dev
+    User nsroot
+
+Host *.swift
+    ProxyCommand ssh 3.eu.gw.swiftserve.com nc %h %p
