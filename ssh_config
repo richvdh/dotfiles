@@ -1,4 +1,4 @@
-Host *.sw1v.org *.swiftserve.com 19cw faith richard
+Host *.sw1v.org 19cw faith richard
      ForwardAgent yes
 
 Host martinbrock.org
@@ -13,9 +13,15 @@ Host dev
      HostName 192.168.2.200
      ForwardAgent yes
 
-Host ssbuild1 ssbuild2
+Host ssbuild? ssbuild?.dev.swiftserve.com
      HostName %h.dev.swiftserve.com
      User jenkins
+     ForwardAgent yes
+     Port 22
+
+Host *.swiftserve.com
+     User root
+     Port 2222
      ForwardAgent yes
 
 # Exclude pa? from sg? pattern
