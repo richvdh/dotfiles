@@ -35,7 +35,7 @@
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
-(redspace-mode t)
+;(redspace-mode t)
 
 ; wtf does this do?
 (setq minibuffer-max-depth nil)
