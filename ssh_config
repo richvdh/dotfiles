@@ -29,7 +29,7 @@ Host *.swiftserve.com
      ForwardAgent yes
 
 # Exclude pa? from sg? pattern
-Host *.staging *.testing *.sprinting *.wip *.gb? ca?.sg? da?.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning puppet.dev puppet1.sys elk?.dev
+Host *.staging *.testing *.sprinting *.wip *.gb? ca?.sg? da?.sg? mg?.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning puppet.dev puppet1.sys elk?.dev
      User root
      Port 2222
      ForwardAgent yes
