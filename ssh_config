@@ -21,17 +21,17 @@ Host dev
 Host 192.168.2.200 # dev
      ForwardAgent yes
 
-# override ssh port for certain swiftserve boxes
+# override user/port for certain swiftserve boxes
 Host git.dev.swiftserve.com 3.eu.gw.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com
      Port 22
 
-# override user for certain swiftserve boxes
 Host ssbuild?.dev.swiftserve.com
      User jenkins
      Port 22
 
-Host pa?.sg?.swiftserve.com
+Host pa?.sg?.swiftserve.com ns*.dev.swiftserve.com
      User nsroot
+     Port 22
 
 Host serv1.sys.swiftserve.com
      User rav
@@ -86,8 +86,6 @@ Host ca1.sg1
 Host ca2.sg1
     Hostname 172.16.1.31
 
-Host nstest.dev
-    User nsroot
 
 Host ca1.sg1 ca2.sg1
     ProxyCommand ssh sellyoak nc %h %p
