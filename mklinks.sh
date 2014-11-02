@@ -9,11 +9,13 @@ link()
     target="$mydir/$1"
     link=$2
 
+    mkdir -vp "$(dirname "$link")"
+
     if [ ! -e "$link" ]; then 
         ln -vs "$target" "$link"
         return
     fi
-    
+
     currenttarget=`readlink -f "$link"`
     if [ "$currenttarget" = "$target" ]; then
         echo "$link -> $target already in place"
