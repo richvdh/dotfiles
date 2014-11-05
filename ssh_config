@@ -6,7 +6,7 @@ Host martinbrock.org
      ForwardAgent yes
 
 # shortcuts for swiftserve stuff
-Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning *.dev *.sys *.log
+Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning *.dev *.sys *.log *.ae?
      HostName %h.swiftserve.com
 
 Host ssbuild?
@@ -29,7 +29,7 @@ Host ssbuild?.dev.swiftserve.com
      User jenkins
      Port 22
 
-Host pa?.sg?.swiftserve.com ns*.dev.swiftserve.com
+Host pa?.sg?.swiftserve.com ns*.dev.swiftserve.com ns*.staging.swiftserve.com
      User nsroot
      Port 22
 
