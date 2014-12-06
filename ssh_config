@@ -1,9 +1,13 @@
-Host *.sw1v.org 19cw faith richard
+Host *.sw1v.org
      ForwardAgent yes
 
 Host martinbrock.org
      User richard
      ForwardAgent yes
+
+# shortcuts for sw1v stuff
+Host 19cw faith dawn
+    HostName %h.sw1v.org
 
 # shortcuts for swiftserve stuff
 Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning *.dev *.sys *.log *.ae?
