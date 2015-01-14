@@ -19,20 +19,14 @@ Host ssbuild?
 Host serv1 serv5
      HostName %h.sys.swiftserve.com
 
-Host dev
-     HostName 192.168.2.200
-
 Host testvmhost1 officerouter1 officerouter2
      HostName %h.swift
-
-Host 192.168.2.200 # dev
-     ForwardAgent yes
 
 Host testvmhost1.swift
      ForwardX11 yes
 
 # override user/port for certain swiftserve boxes
-Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift
+Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift
      Port 22
 
 Host serv1.sys.swiftserve.com 3.eu.gw.swiftserve.com
