@@ -13,6 +13,7 @@
         oneline2 = format:%h%d <%an> %ai %s
 
 [alias]
+        logg = log --graph
         lol = log --graph --pretty=oneline2 --abbrev-commit
         lola = log --graph --pretty=oneline2 --abbrev-commit --all
         st = status
