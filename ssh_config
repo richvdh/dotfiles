@@ -19,7 +19,7 @@ Host ssbuild?
 Host serv1 serv5
      HostName %h.sys.swiftserve.com
 
-Host testvmhost1 officerouter1 officerouter2
+Host testvmhost1 officerouter? ssbuildhost?
      HostName %h.swift
 
 Host testvmhost1.swift
