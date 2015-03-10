@@ -104,10 +104,14 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-function rb {
+function bug {
     xdg-open "https://redmine.dev.swiftserve.com/issues/$1"
 }
 
+function pr {
+    current_branch=`git rev-parse --abbrev-ref HEAD`
+    post-review -o --guess-summary --guess-description --tracking-branch=origin/master "--branch=$current_branch" "$@"
+}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
