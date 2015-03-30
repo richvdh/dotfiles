@@ -10,7 +10,7 @@ Host 19cw faith dawn
     HostName %h.sw1v.org
 
 # shortcuts for swiftserve stuff
-Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? *.dev *.sys *.log *.ae? portal provisioning reporting1 *.portal
+Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? *.dev *.sys *.log *.ae? portal provisioning reporting1 *.portal *.host
      HostName %h.swiftserve.com
 
 Host ssbuild?
