@@ -1,9 +1,6 @@
-Host *.sw1v.org
-     ForwardAgent yes
-
-Host martinbrock.org
-     User richard
-     ForwardAgent yes
+# ssh config file
+#
+# Earlier settings take priority over later ones
 
 # shortcuts for sw1v stuff
 Host 19cw faith dawn
@@ -22,10 +19,20 @@ Host serv1 serv5
 Host testvmhost1 officerouter? ssbuildhost? alucache2 alucache2ilo
      HostName %h.swift
 
+Host ubuntu1 ubuntu2 lxctesthost
+     HostName %h.testvm.swift
+
 Host testvmhost1.swift
      ForwardX11 yes
 
-# override user/port for certain swiftserve boxes
+# override user/port for certain boxes
+Host *.sw1v.org
+     ForwardAgent yes
+
+Host martinbrock.org
+     User richard
+     ForwardAgent yes
+
 Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift *.host.swiftserve.com
      Port 22
 
@@ -45,17 +52,6 @@ Host pa?.sg?.swiftserve.com ns*.dev.swiftserve.com ns*.staging.swiftserve.com
      User nsroot
      Port 22
 
-Host *.swiftserve.com *.swift
-     User root
-     Port 2222
-     ForwardAgent yes
-
-# Exclude pa? from sg? pattern
-#Host *.staging *.testing *.sprinting *.wip *.gb? ca?.sg? da?.sg? mg?.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? portal provisioning puppet.dev puppet1.sys elk?.dev
-#     User root
-#     Port 2222
-#     ForwardAgent yes
-
 Host 192.168.62.* alucache2.swift
      User root
      StrictHostKeyChecking no
@@ -66,11 +62,10 @@ Host 192.168.1.10 alucache2ilo.swift
      User Administrator
      Port 22
 
-Host router
+Host *.swiftserve.com *.swift
      User root
-
-Host ubuntu1 ubuntu2 lxctesthost
-     HostName %h.testvm.swift
+     Port 2222
+     ForwardAgent yes
 
 Host conversant
     User adam
