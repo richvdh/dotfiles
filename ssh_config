@@ -19,7 +19,7 @@ Host ssbuild?
 Host serv1 serv5
      HostName %h.sys.swiftserve.com
 
-Host testvmhost1 officerouter? ssbuildhost?
+Host testvmhost1 officerouter? ssbuildhost? alucache2 alucache2ilo
      HostName %h.swift
 
 Host testvmhost1.swift
@@ -56,13 +56,15 @@ Host *.swiftserve.com *.swift
 #     Port 2222
 #     ForwardAgent yes
 
-Host 192.168.62.* alucache2
+Host 192.168.62.* alucache2.swift
      User root
      StrictHostKeyChecking no
      UserKnownHostsFile /dev/null
+     Port 22
 
-Host 192.168.1.10 alucache2ilo
+Host 192.168.1.10 alucache2ilo.swift
      User Administrator
+     Port 22
 
 Host router
      User root
