@@ -121,7 +121,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -132,3 +131,8 @@ GIT_PS1_SHOWUPSTREAM="auto"
 PROMPT_COMMAND='__git_ps1 "'$PS1'" "\$ "'
 
 stty -ixon
+
+
+if [ -f $HOME/dotfiles/priv/bashrc ]; then
+   . $HOME/dotfiles/priv/bashrc
+fi
