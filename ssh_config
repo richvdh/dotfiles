@@ -36,6 +36,9 @@ Host martinbrock.org
 Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift *.host.swiftserve.com
      Port 22
 
+Host puppetmaster.*.swiftserve.com
+     Port 22
+
 Host ftp.testing.swiftserve.com ftp.sprinting.swiftserve.com ftp.wip.swiftserve.com
      Port 22
 
