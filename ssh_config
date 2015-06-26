@@ -6,6 +6,20 @@
 Host 19cw faith dawn
     HostName %h.sw1v.org
 
+# special swiftserve boxes - note these must be before the more general
+# *.wip swiftserve shortcut otherwise the HostName is ignored.
+Host prov1a.wip.swiftserve.com prov1a.wip
+    HostName ec2-52-28-160-121.eu-central-1.compute.amazonaws.com
+    Port 22
+    User admin
+    IdentityFile ~/.ssh/frankfurt-devinfra.pem
+
+Host prov1b.wip.swiftserve.com prov1b.wip
+    HostName ec2-52-28-131-248.eu-central-1.compute.amazonaws.com
+    Port 22
+    User admin
+    IdentityFile ~/.ssh/frankfurt-devinfra.pem
+
 # shortcuts for swiftserve stuff
 Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? *.dev *.sys *.log *.ae? portal provisioning reporting1 *.portal *.host
      HostName %h.swiftserve.com
@@ -24,6 +38,14 @@ Host ubuntu1 ubuntu2 lxctesthost
 
 Host testvmhost1.swift
      ForwardX11 yes
+
+Host cedexis
+     HostName provisioning.swiftserve.com
+     User cedexis
+
+Host cedexis-test
+     HostName provisioning.sprinting.swiftserve.com
+     User cedexis
 
 # override user/port for certain boxes
 Host *.sw1v.org
