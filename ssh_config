@@ -55,7 +55,7 @@ Host martinbrock.org
      User richard
      ForwardAgent yes
 
-Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift *.host.swiftserve.com
+Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift *.host.swiftserve.com sentry1.sys.swiftserve.com
      Port 22
 
 Host puppetmaster.*.swiftserve.com
