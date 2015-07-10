@@ -90,6 +90,9 @@ Host 192.168.1.10 alucache2ilo.swift
      User Administrator
      Port 22
 
+Host lettuce-uk.dev.swiftserve.com
+     Port 22
+
 Host *.swiftserve.com *.swift
      User root
      Port 2222
