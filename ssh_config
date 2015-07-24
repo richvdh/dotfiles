@@ -117,10 +117,13 @@ Host ca2.sg1
     Hostname 172.16.1.31
 
 Host ca1.sg1 ca2.sg1
-    ProxyCommand ssh sellyoak nc %h %p
+    ProxyCommand ssh sellyoak nc %h %p -w 90
+    ServerAliveInterval 30
 
 Host *.th8 *.th9 *.th30
-    ProxyCommand ssh provisioning nc %h %p
+    ProxyCommand ssh provisioning nc %h %p -w 90
+    ServerAliveInterval 30
 
 Host *.swift
-    ProxyCommand ssh 3.eu.gw.swiftserve.com nc %h %p
+    ProxyCommand ssh 3.eu.gw.swiftserve.com nc %h %p -w 90
+    ServerAliveInterval 30
