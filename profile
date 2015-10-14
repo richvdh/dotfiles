@@ -50,3 +50,5 @@ if [ -f $HOME/dotfiles/profile.$HOSTNAME ]; then
 fi
 
 export IPOD_MOUNTPOINT=/media/rav/RICHARD\'S\ I
+
+export GOPATH=$HOME/gocode
