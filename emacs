@@ -90,7 +90,7 @@
 		(set-tab-width 8)
 	    (c-add-style "PERSONAL" my-c-style t)
 	    (auto-fill-mode t)
-	    (define-key c-mode-map "\^M" 'newline-and-indent)
+	    (define-key c-mode-map "\C-m" 'newline-and-indent)
 	    (define-key c-mode-map [(control meta prior)] 'c-beginning-of-defun)
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
             ))
@@ -131,6 +131,10 @@
 	    (setq verilog-indent-level 4
 		  verilog-indent-level-module 4
 		  verilog-indent-level-declaration 4 )))
+
+(add-hook 'yaml-mode-hook
+          (lambda ()
+            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 (defun conditionally-fontify-buffer ()
   (interactive)
