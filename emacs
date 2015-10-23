@@ -149,67 +149,10 @@
        (provide 'html-helper-mode)
        ))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-; scrolling with mouse
-
-( cond
-  ;; this is in xemacs, but not emacs
-  ((not (fboundp 'event-window))
-   (defun event-window ( event )
-     "Given an event, return the window where it started"
-     ( posn-window ( event-start event ))
-     )
-   )
-)
-
-(defun scroll-up-with-mouse ( dist )
-  "Scroll the window where the last input event occured up by dist lines"
-  ( let (( curwin ( selected-window )))
-    ( select-window ( event-window last-input-event ))
-    ( condition-case err
-					; ignore end of buffer errors
-      (scroll-up dist)
-      (end-of-buffer
-       (select-window curwin)
-       ( error "%s" ( car err ))
-       ))
-    (select-window curwin)
-    )
-)
-
-(defun scroll-down-with-mouse ( dist )
-  "Scroll the window where the last input event occured down by dist lines"
-  ( let (( curwin ( selected-window )))
-    ( select-window ( event-window last-input-event ))
-    ( condition-case err
-					; ignore beginning of buffer errors
-      ( scroll-down dist )
-      ( beginning-of-buffer
-       (select-window curwin)
-       ( error "%s" ( car err ))
-       ))
-    ( select-window curwin )
-    )
-)
-
-
-(defun scroll-up-one        () "Scroll up one line."      (interactive) ( scroll-up-with-mouse   1 ))
-(defun scroll-down-one      () "Scroll down one line."    (interactive) ( scroll-down-with-mouse 1 ))
-(defun scroll-up-slightly   () "Scroll up 5 lines."       (interactive) ( scroll-up-with-mouse   5 ))
-(defun scroll-down-slightly () "Scroll down 5 lines."     (interactive) ( scroll-down-with-mouse 5 ))
-(defun scroll-up-half       () "Scroll up half a page."   (interactive) ( scroll-up-with-mouse   (/ (window-height) 2 )))
-(defun scroll-down-half     () "Scroll down half a page." (interactive) ( scroll-down-with-mouse (/ (window-height) 2 )))
-(defun scroll-up-a-lot      () "Scroll up a page."        (interactive) ( scroll-up-with-mouse   (- (window-height) 2 )))
-(defun scroll-down-a-lot    () "Scroll down a page."      (interactive) ( scroll-down-with-mouse (- (window-height) 2 )))
-
-
-
 (defun reverse-yank-pop (arg)
    "Like yank-pop, only backwards."
    (interactive "*p")
    (yank-pop (- arg)))
-
 
 ; this doesn't work on emacs 23.3 (no device-type or mouse-consolidated-yank)
 ; and anyway, yank seems to do the right thing (ie, paste the primary
@@ -232,15 +175,6 @@
 ;; key bindings - names depend on emacs/xemacs
 (cond
  ((string-match "XEmacs" emacs-version)
-  (global-set-key [button4]		    'scroll-down-slightly )
-  (global-set-key [button5]		    'scroll-up-slightly )
-  (global-set-key [(shift button4)]	    'scroll-down-one)
-  (global-set-key [(shift button5)]	    'scroll-up-one)
-  (global-set-key [(control button4)]	    'scroll-down-a-lot)
-  (global-set-key [(control button5)]	    'scroll-up-a-lot)
-  (global-set-key [(control shift button4)] 'scroll-down-half )
-  (global-set-key [(control shift button5)] 'scroll-up-half )
-
   (global-set-key [end]			    'end-of-line)
   (global-set-key [(meta end)]		    'end-of-line-other-buffer)
   (global-set-key [(control end)]	    'end-of-buffer)
@@ -263,22 +197,12 @@
   )
 
  ( t
-  (global-set-key [mouse-4]		'scroll-down-slightly )
-  (global-set-key [mouse-5]		'scroll-up-slightly )
-  (global-set-key [S-mouse-4]		'scroll-down-one)
-  (global-set-key [S-mouse-5]		'scroll-up-one)
-  (global-set-key [C-mouse-4]		'scroll-down-a-lot)
-  (global-set-key [C-mouse-5]		'scroll-up-a-lot)
-  (global-set-key [C-S-mouse-4]		'scroll-down-half )
-  (global-set-key [C-S-mouse-5]		'scroll-up-half )
-
   (global-set-key [delete]		'delete-char)
 
   (global-set-key [end]			'end-of-line)
   (global-set-key [M-end]		'end-of-line-other-buffer)
   (global-set-key [C-end]		'end-of-buffer)
   (global-set-key [M-C-end]		'end-of-buffer-other-buffer)
-
   (global-set-key [home]		'beginning-of-line)
   (global-set-key [M-home]		'beginning-of-line-other-buffer)
   (global-set-key [C-home]		'beginning-of-buffer)
