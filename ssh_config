@@ -2,128 +2,12 @@
 #
 # Earlier settings take priority over later ones
 
-# shortcuts for sw1v stuff
 Host 19cw faith dawn
     HostName %h.sw1v.org
 
-# special swiftserve boxes - note these must be before the more general
-# *.wip swiftserve shortcut otherwise the HostName is ignored.
-Host prov1a.wip.swiftserve.com prov1a.wip
-    HostName ec2-52-28-160-121.eu-central-1.compute.amazonaws.com
-    Port 22
-    User admin
-    IdentityFile ~/.ssh/frankfurt-devinfra.pem
-
-Host prov1b.wip.swiftserve.com prov1b.wip
-    HostName ec2-52-28-131-248.eu-central-1.compute.amazonaws.com
-    Port 22
-    User admin
-    IdentityFile ~/.ssh/frankfurt-devinfra.pem
-
-# shortcuts for swiftserve stuff
-Host *.staging *.testing *.sprinting *.wip *.gb? *.sg? *.de1 *.my? *.tw? *.id? *.id?? *.in? *.in?? *.hk? *.ie? *.jp? *.ph? *.preprod *.th? *.th?? *.use? *.usw? *.vn? *.dev *.sys *.log *.ae? portal provisioning reporting1 *.portal *.host
-     HostName %h.swiftserve.com
-
-Host ssbuild?
-     HostName %h.dev.swiftserve.com
-
-Host serv1 serv5
-     HostName %h.sys.swiftserve.com
-
-Host testvmhost1 officerouter? ssbuildhost? alucache2 alucache2ilo
-     HostName %h.swift
-
-Host ubuntu1 ubuntu2 lxctesthost
-     HostName %h.testvm.swift
-
-Host testvmhost1.swift
-     ForwardX11 yes
-
-Host cedexis
-     HostName provisioning.swiftserve.com
-     User cedexis
-
-Host cedexis-test
-     HostName provisioning.sprinting.swiftserve.com
-     User cedexis
-
-# override user/port for certain boxes
 Host *.sw1v.org
      ForwardAgent yes
 
 Host martinbrock.org
      User richard
      ForwardAgent yes
-
-Host git.dev.swiftserve.com storage?.log.swiftserve.com collect?.log.swiftserve.com reporting?.swiftserve.com serv?.sys.swiftserve.com puppet.sys.swiftserve.com analytics2.log *.testvm.swift testvmhost1.swift ssbuildhost?.swift officerouter2.swift dev.swift *.host.swiftserve.com sentry1.sys.swiftserve.com
-     Port 22
-
-Host puppetmaster.*.swiftserve.com
-     Port 22
-
-Host ftp.testing.swiftserve.com ftp.sprinting.swiftserve.com ftp.wip.swiftserve.com
-     Port 22
-
-Host *.portal.swiftserve.com portal.testing.swiftserve.com
-     Port 22
-     User admin
-
-Host serv1.sys.swiftserve.com 3.eu.gw.swiftserve.com
-     User rav
-     Port 22
-
-Host ssbuild?.dev.swiftserve.com
-     User jenkins
-     Port 22
-
-Host pa?.sg?.swiftserve.com ns*.dev.swiftserve.com ns*.staging.swiftserve.com
-     User nsroot
-     Port 22
-
-Host 192.168.62.* alucache2.swift
-     User root
-     StrictHostKeyChecking no
-     UserKnownHostsFile /dev/null
-     Port 22
-
-Host 192.168.1.10 alucache2ilo.swift
-     User Administrator
-     Port 22
-
-Host lettuce-uk.dev.swiftserve.com
-     Port 22
-
-Host *.swiftserve.com *.swift
-     User root
-     Port 2222
-     ForwardAgent yes
-
-Host conversant
-    User adam
-    Hostname 116.12.172.141
-    Port 8022
-    ForwardAgent yes
-
-Host sellyoak
-    User versio4
-    Port 22
-    Hostname 116.12.172.137
-    ForwardAgent yes
-
-Host ca1.sg1
-    Hostname 172.16.1.30
-
-Host ca2.sg1
-    Hostname 172.16.1.31
-
-Host ca1.sg1 ca2.sg1
-    ProxyCommand ssh sellyoak nc %h %p -w 90
-    ServerAliveInterval 30
-
-Host *.th8 *.th9 *.th30
-    ProxyCommand ssh provisioning nc %h %p -w 90
-    ServerAliveInterval 30
-
-Host *.swift
-    ProxyCommand ssh 3.eu.gw.swiftserve.com nc %h %p -w 90
-    ServerAliveInterval 30
