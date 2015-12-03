@@ -52,3 +52,14 @@ fi
 export IPOD_MOUNTPOINT=/media/rav/RICHARD\'S\ I
 
 export GOPATH=$HOME/gocode
+
+# let cpan install to ~
+export PERL5LIB=$HOME/lib/perl5
+export PERL_MB_OPT=--install_base=$HOME
+export PERL_MM_OPT=INSTALL_BASE=$HOME
+
+# colours are nice
+export LESS=-R
+
+# maths is nice
+export BC_ENV_ARGS="-l $HOME/.bcrc"

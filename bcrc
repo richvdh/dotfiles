@@ -1,0 +1,9 @@
+pi=4*a(1)
+define sin(n) { return s(n) }
+define asin(n) { return a(n/sqrt(1-n^2)) }
+define cos(n) { return c(n) }
+define acos(n) { return a(sqrt(1-n^2)/n) }
+define tan(n) { return s(n)/c(n) }
+define atan(n) { return a(n) }
+define rad(n) { return n * pi / 180  }
+define deg(n) { return n * 180 / pi }
