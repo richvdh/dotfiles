@@ -3,19 +3,20 @@
 
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 80)
 
 (nconc load-path (mapcar 'expand-file-name
                          '("~/dotfiles/emacs.d/packages"
-                           "~/dotfiles/emacs.d/packages/puppet-syntax-emacs")))
+                           "~/dotfiles/emacs.d/packages/puppet-syntax-emacs"
+                           "~/.emacs.d/matrix.el")))
 
 
 ;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
 (mapc (lambda(x) (load-file (expand-file-name x)))
       '("~/dotfiles/emacs.d/packages/loaddefs.el"
         "~/dotfiles/emacs.d/packages/Emacs-Groovy-Mode/groovy-mode.el"
-        "~/dotfiles/emacs.d/packages/puppet-syntax-emacs/puppet-mode-init.el")
-)
+        "~/dotfiles/emacs.d/packages/puppet-syntax-emacs/puppet-mode-init.el"
+))
 
 ;; file recognition
 (setq auto-mode-alist
@@ -38,7 +39,7 @@
 ;(redspace-mode t)
 
 ; wtf does this do?
-(setq minibuffer-max-depth nil)
+; (setq minibuffer-max-depth nil)
 
 
 (if (fboundp 'set-scroll-bar-mode)  ; not on xemacs, apparently
@@ -317,10 +318,10 @@
 ; customisation stuff
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(fill-column 79)
  '(indent-tabs-mode nil)
@@ -328,15 +329,30 @@
  '(load-home-init-file t t)
  '(puppet-include-indent 4)
  '(puppet-indent-level 4))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
-
 
 ;; load custom per-host files
 (let ((host-file (format "~/dotfiles/emacs.d/hosts/%s.el" system-name)))
   (if (file-exists-p host-file)
       (load host-file)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; package initialisation
+;
+
+; add melpa to the list of package repositories
+(require 'package)
+(add-to-list
+ 'package-archives
+ '("melpa" . "http://melpa.org/packages/")
+ t)
+
+; By default, packages aren't initialised until after the init.el runs. We
+; force it to happen here, and then do the stuff which depends on them.
+(package-initialize)
+
+(require 'matrix-client)
+
+
+(put 'narrow-to-region 'disabled nil)
