@@ -1,6 +1,6 @@
 [user]
         name = Richard van der Hoff
-        email = git@rvanderhoff.org.uk
+        email = richard@matrix.org
 
 [credential]
 	helper = cache
@@ -26,8 +26,10 @@
         # make git only push the current branch by default
         # tracking, rather than upstream, for compat with git 1.7.2
         # (they are synonyms)
-        default = tracking
+        # default = tracking
 
+        # push the current branch to the upstream branch with the same name
+        default = current
 
 # this won't work on git < 1.7.10, but is harmless on older versions
 # (as indeed it is if the included file is missing)
