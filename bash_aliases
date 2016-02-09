@@ -1,1 +1,10 @@
-alias publish=/home/rav/work/swiftserve2-master/streaming/utils/avconv_publish.sh
+function pr {
+    if [ "$1" == "-r" ]; then
+        rm -f `git rev-parse --git-dir`/PULLREQ_EDITMSG
+        shift
+    fi
+    hub pull-request -o "$@"
+}
+
+
+
