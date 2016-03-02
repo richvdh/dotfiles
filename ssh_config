@@ -5,27 +5,27 @@
 Host newbase
      HostName %h.openmarket.com
 
-Host 19cw faith dawn giles gilesipmi osmc
+Host 19cw faith dawn giles gilesipmi osmc tara
     HostName %h.sw1v.org
 
-Host *.sw1v.org
+Match host *.sw1v.org
      ForwardAgent yes
 
-Host *.openmarket.com
+Match host *.openmarket.com
      User richardv
      ForwardAgent yes
 
-Host martinbrock.org
+Match host martinbrock.org
      User richard
      ForwardAgent yes
 
-Host gilesipmi.sw1v.org
+Match host gilesipmi.sw1v.org
      User ADMIN
      ServerAliveInterval 300
 
-Host giles.sw1v.org gilesipmi.sw1v.org
+Match host giles.sw1v.org,gilesipmi.sw1v.org,tara.sw1v.org
     ProxyCommand ssh 19cw.sw1v.org nc -w 90 %h %p
     ServerAliveInterval 30
 
-Host osmc.sw1v.org
+Match host osmc.sw1v.org
     User osmc
