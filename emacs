@@ -11,8 +11,12 @@
                            "~/.emacs.d/matrix.el")))
 
 
+(defun load-file-if-exists (x)
+  (if (file-exists-p x)
+      (load-file x)))
+
 ;; loaddefs.el is maintained automatically by (update-autoloads-in-package-area)
-(mapc (lambda(x) (load-file (expand-file-name x)))
+(mapc (lambda(x) (load-file-if-exists (expand-file-name x)))
       '("~/dotfiles/emacs.d/packages/loaddefs.el"
         "~/dotfiles/emacs.d/packages/Emacs-Groovy-Mode/groovy-mode.el"
         "~/dotfiles/emacs.d/packages/puppet-syntax-emacs/puppet-mode-init.el"
@@ -352,7 +356,8 @@
 ; force it to happen here, and then do the stuff which depends on them.
 (package-initialize)
 
-(require 'matrix-client)
+
+(require 'matrix-client nil t)
 
 
 (put 'narrow-to-region 'disabled nil)
