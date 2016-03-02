@@ -5,7 +5,7 @@
 Host newbase
      HostName %h.openmarket.com
 
-Host 19cw faith dawn giles gilesipmi osmc tara
+Host 19cw faith dawn giles gilesipmi osmc tara mrpointy
     HostName %h.sw1v.org
 
 Match host *.sw1v.org
@@ -29,3 +29,6 @@ Match host giles.sw1v.org,gilesipmi.sw1v.org,tara.sw1v.org
 
 Match host osmc.sw1v.org
     User osmc
+
+Host mrpointy.sw1v.org
+    User root
