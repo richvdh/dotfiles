@@ -21,9 +21,8 @@ if [ -x "/usr/bin/keychain" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# also things included by pip
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export DEBFULLNAME='Richard van der Hoff'
 export DEBEMAIL='launchpad@rvanderhoff.org.uk'
