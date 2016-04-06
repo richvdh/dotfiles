@@ -31,6 +31,7 @@
 	 ( "\\.[vV]\\'" . verilog-mode )
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
 	 ( "\\.asm\\'" . asm-mode )
+	 ( "\\.pl\\'" . cperl-mode )
 	 ( "\\.ph\\'" . cperl-mode )
          ( "\\.ipp\\'" . c++-mode )
          ( "SConstruct\\'" . python-mode )
@@ -100,11 +101,10 @@
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
             ))
 
-(add-hook 'cperl-mode-hook
-	  (lambda ()
-	    (define-key cperl-mode-map [backspace] 'cperl-electric-backspace)
-	    (define-key cperl-mode-map [delete]	   'backward-or-forward-delete-char)
-	    (define-key cperl-mode-map "\^C\^X"	   'cperl-find-pods-heres)))
+;(add-hook 'cperl-mode-hook
+;	  (lambda ()
+;	    (define-key cperl-mode-map [backspace] 'cperl-electric-backspace)
+;	    (define-key cperl-mode-map "\^C\^X"	   'cperl-find-pods-heres)))
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
@@ -327,6 +327,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(cperl-indent-level 4)
+ '(cperl-indent-parens-as-block t)
  '(fill-column 79)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -361,3 +363,9 @@
 
 
 (put 'narrow-to-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
