@@ -93,9 +93,10 @@
 (add-hook 'c-mode-common-hook
 	  (lambda ()
 	    ;; add my personal style and set it for the current buffer
-		(set-tab-width 8)
+            (set-tab-width 8)
 	    (c-add-style "PERSONAL" my-c-style t)
 	    (auto-fill-mode t)
+            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 	    (define-key c-mode-map "\C-m" 'newline-and-indent)
 	    (define-key c-mode-map [(control meta prior)] 'c-beginning-of-defun)
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
@@ -118,6 +119,11 @@
 	  (lambda ()
 	    (define-key java-mode-map "\C-m" 'newline-and-indent)))
 
+(add-hook 'js-mode-hook
+	  (lambda ()
+            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            ))
+
 (add-hook 'latex-mode-hook
 	  (lambda ()
 	    (auto-fill-mode 1)
@@ -126,8 +132,11 @@
 
 (add-hook 'text-mode-hook
 	  (lambda ()
+            ;; ispell-minor-mode fights with electric-buffer-mode, which apparently runs
+            ;; text-mode-hook.
+            ;; (ispell-minor-mode)
 	    (auto-fill-mode 1)
-	    (ispell-minor-mode))
+            )
 	  )
 
 (add-hook 'verilog-mode-hook
@@ -332,6 +341,7 @@
  '(fill-column 79)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(js-switch-indent-offset 4)
  '(load-home-init-file t t)
  '(puppet-include-indent 4)
  '(puppet-indent-level 4))
