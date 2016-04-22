@@ -38,6 +38,7 @@
          ( "SConscript\\'" . python-mode )
          ( "README\\'" . text-mode )
          ( "COMMIT_EDITMSG\\'" . text-mode )
+         ( "\\.md\\'" . markdown-mode )
 	 ) auto-mode-alist))
 
 (setq make-backup-files nil)
@@ -193,7 +194,7 @@
   (global-set-key [(meta end)]		    'end-of-line-other-buffer)
   (global-set-key [(control end)]	    'end-of-buffer)
   (global-set-key [(meta control end)]	    'end-of-buffer-other-buffer)
-  
+
   (global-set-key [home]		    'beginning-of-line)
   (global-set-key [(meta home)]		    'beginning-of-line-other-buffer)
   (global-set-key [(control home)]	    'beginning-of-buffer)
@@ -301,7 +302,7 @@
 ;( cond
 ;  (( eq window-system 'x )
 ;   ( setq tex-dvi-view-command "xdvi" ))
-;  ( t  
+;  ( t
 ;    ( setq tex-dvi-view-command "dvi2tty" )
 ;    ))
 
