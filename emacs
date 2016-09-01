@@ -70,7 +70,8 @@
     (c-cleanup-list                . (scope-operator
 				      empty-defun-braces
 				      defun-close-semi))
-    (c-offsets-alist               . ((arglist-close     . c-lineup-arglist)
+    (c-offsets-alist               . ((arglist-close     . 0)
+                                      ;(arglist-close     . c-lineup-arglist)
 				      (substatement-open . 0)
 				      (member-init-intro . ++)
 				      (knr-argdecl-intro . 0)
@@ -79,6 +80,7 @@
 				      (access-label      . -2)
 				      (case-label        . +)
                                       (innamespace       . 0)
+                                      (inextern-lang     . 0)
                                       ))
     (c-echo-syntactic-information-p . t)
     (c-basic-offset                 . 4)
@@ -112,6 +114,11 @@
 	  (lambda ()
 	    (setq truncate-lines t )))
 
+(add-hook 'go-mode-hook
+          (lambda()
+            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            ))
+
 (add-hook 'html-mode-hook
 	  (lambda ()
 	    (auto-fill-mode 1)))
@@ -130,6 +137,11 @@
 	    (auto-fill-mode 1)
 	    (ispell-minor-mode))
 	  )
+
+(add-hook 'python-mode-hook
+          (lambda()
+            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            ))
 
 (add-hook 'text-mode-hook
 	  (lambda ()
@@ -336,6 +348,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-browser-function (quote browse-url-generic))
+ '(browse-url-generic-program "gnome-open")
  '(column-number-mode t)
  '(cperl-indent-level 4)
  '(cperl-indent-parens-as-block t)
@@ -344,6 +358,7 @@
  '(inhibit-startup-screen t)
  '(js-switch-indent-offset 4)
  '(load-home-init-file t t)
+ '(mouse-autoselect-window 0.5)
  '(puppet-include-indent 4)
  '(puppet-indent-level 4))
 
