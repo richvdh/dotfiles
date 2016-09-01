@@ -63,6 +63,6 @@ export LESS=-R
 # maths is nice
 export BC_ENV_ARGS="-l $HOME/.bcrc"
 
-# define nvm alias
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# load emscripten stuff
+[ -s "$HOME/emsdk_portable/emsdk_env.sh" ] &&
+    . "$HOME/emsdk_portable/emsdk_env.sh"
