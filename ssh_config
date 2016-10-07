@@ -23,7 +23,7 @@ Match host gilesipmi.sw1v.org
      User ADMIN
      ServerAliveInterval 300
 
-Match host giles.sw1v.org,gilesipmi.sw1v.org,tara.sw1v.org
+Match host giles.sw1v.org,tara.sw1v.org
     ProxyCommand ssh 19cw.sw1v.org nc -w 90 %h %p
     ServerAliveInterval 30
 
