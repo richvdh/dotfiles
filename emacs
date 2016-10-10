@@ -99,7 +99,7 @@
             (set-tab-width 8)
 	    (c-add-style "PERSONAL" my-c-style t)
 	    (auto-fill-mode t)
-            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
 	    (define-key c-mode-map "\C-m" 'newline-and-indent)
 	    (define-key c-mode-map [(control meta prior)] 'c-beginning-of-defun)
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
@@ -116,7 +116,7 @@
 
 (add-hook 'go-mode-hook
           (lambda()
-            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
             ))
 
 (add-hook 'html-mode-hook
@@ -129,7 +129,7 @@
 
 (add-hook 'js-mode-hook
 	  (lambda ()
-            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
             ))
 
 (add-hook 'latex-mode-hook
@@ -140,7 +140,7 @@
 
 (add-hook 'python-mode-hook
           (lambda()
-            (add-to-list 'write-file-functions 'delete-trailing-whitespace)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
             ))
 
 (add-hook 'text-mode-hook
