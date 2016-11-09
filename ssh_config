@@ -5,7 +5,7 @@
 Host newbase
      HostName %h.openmarket.com
 
-Host 19cw faith dawn giles gilesipmi osmc tara mrpointy
+Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1
     HostName %h.sw1v.org
 
 Match host *.sw1v.org
@@ -24,7 +24,7 @@ Match host gilesipmi.sw1v.org
      ServerAliveInterval 300
 
 Match host giles.sw1v.org,tara.sw1v.org
-    ProxyCommand ssh 19cw.sw1v.org nc -w 90 %h %p
+    ProxyCommand ssh gw0.sw1v.org nc -w 90 %h %p
     ServerAliveInterval 30
 
 Match host osmc.sw1v.org
