@@ -148,6 +148,7 @@
             ;; ispell-minor-mode fights with electric-buffer-mode, which apparently runs
             ;; text-mode-hook.
             ;; (ispell-minor-mode)
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
 	    (auto-fill-mode 1)
             )
 	  )
