@@ -72,3 +72,4 @@ link "svn_config" ~/.subversion/config
 link "hgrc/hgrc" ~/.hgrc
 link "bcrc" ~/.bcrc
 link "gdbinit" ~/.gdbinit
+link "upstart" ~/.config/upstart
