@@ -41,3 +41,5 @@
 # (as indeed it is if the included file is missing)
 [include]
         path = ~/.gitconfig.local
+[rerere]
+	enabled = true
