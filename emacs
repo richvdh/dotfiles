@@ -1,6 +1,9 @@
 ; something, somewhere, resets the default of auto-fill-function to c-do-auto-fill.
 ; (setq-default auto-fill-function nil)
 
+; idiotic 3-space perl indents
+; (setq-default cperl-indent-level 3)
+
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
 (set-face-attribute 'default nil :height 80)
