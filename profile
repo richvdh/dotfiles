@@ -1,3 +1,5 @@
+# -*- mode: shell-script -*-
+#
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -64,5 +66,11 @@ export LESS=-R
 export BC_ENV_ARGS="-l $HOME/.bcrc"
 
 # load emscripten stuff
-[ -s "$HOME/emsdk_portable/emsdk_env.sh" ] &&
-    . "$HOME/emsdk_portable/emsdk_env.sh"
+if [ -d "$HOME/emsdk_portable" ]; then
+   # emsdk_portable/emsdk_env.sh is a thing, which is auto-maintained by 'emsdk
+   # activate' and friends. However it adds its own clang to the path, which is
+   # unnecessary, and conflicts with normal clang use.
+   export PATH="/home/rav/emsdk_portable:/home/rav/emsdk_portable/emscripten/master:$PATH"
+   export EM_CONFIG="/home/rav/.emscripten"
+   export EMSCRIPTEN="/home/rav/emsdk_portable/emscripten/master"
+fi
