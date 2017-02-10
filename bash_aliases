@@ -6,5 +6,6 @@ function pr {
     hub pull-request -o "$@"
 }
 
-
+# enable colours for jq even when piping to less
+alias jq='jq -C'
 
