@@ -1,0 +1,4 @@
+# this makes the 'sound settings' control use pavucontrol instead of
+# gnome-control-center. See also
+# https://bugs.launchpad.net/ubuntu/+source/indicator-sound/+bug/833301.
+env DESKTOP_SESSION=xubuntu
