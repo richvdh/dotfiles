@@ -146,6 +146,11 @@
             (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
             ))
 
+(add-hook 'rust-mode-hook
+          (lambda()
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
+            ))
+
 (add-hook 'text-mode-hook
 	  (lambda ()
             ;; ispell-minor-mode fights with electric-buffer-mode, which apparently runs
@@ -248,6 +253,8 @@
 
   (global-set-key "\M-g"                'goto-line)
 
+  (global-set-key "\C-z"                'undo)
+  
   ; windows-up/down/left/right - change window
   (global-set-key [s-up]                'windmove-up)
   (global-set-key [s-down]              'windmove-down)
@@ -363,6 +370,7 @@
  '(js-switch-indent-offset 4)
  '(load-home-init-file t t)
  '(mouse-autoselect-window 0.5)
+ '(perl-indent-parens-as-block t)
  '(puppet-include-indent 4)
  '(puppet-indent-level 4))
 
