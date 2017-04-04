@@ -24,7 +24,7 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 # also things included by pip
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/gocode/bin:$PATH"
 
 export DEBFULLNAME='Richard van der Hoff'
 export DEBEMAIL='launchpad@rvanderhoff.org.uk'
