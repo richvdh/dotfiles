@@ -25,6 +25,24 @@
         "~/dotfiles/emacs.d/packages/puppet-syntax-emacs/puppet-mode-init.el"
 ))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; package initialisation
+;
+
+; add melpa to the list of package repositories
+(require 'package)
+(add-to-list
+ 'package-archives
+ '("melpa" . "http://melpa.org/packages/")
+ t)
+
+; By default, packages aren't initialised until after the init.el runs. We
+; force it to happen here, and then do the stuff which depends on them.
+(package-initialize)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; file recognition
 (setq auto-mode-alist
       (append
@@ -43,6 +61,14 @@
          ( "COMMIT_EDITMSG\\'" . text-mode )
          ( "\\.md\\'" . markdown-mode )
 	 ) auto-mode-alist))
+
+;; prefer js2 for javascript, if it's installed (via package-install js2)
+(if (fboundp 'js2-mode)
+    (add-to-list 'auto-mode-alist
+                 '("\\.jsx?\\'" . js2-jsx-mode)
+                 ))
+
+
 
 (setq make-backup-files nil)
 ;(redspace-mode t)
@@ -120,6 +146,7 @@
 (add-hook 'go-mode-hook
           (lambda()
             (add-hook 'before-save-hook 'delete-trailing-whitespace nil t)
+            (add-hook 'before-save-hook 'gofmt-before-save)
             ))
 
 (add-hook 'html-mode-hook
@@ -368,6 +395,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js-switch-indent-offset 4)
+ '(js2-strict-trailing-comma-warning nil)
  '(load-home-init-file t t)
  '(mouse-autoselect-window 0.5)
  '(perl-indent-parens-as-block t)
@@ -378,23 +406,6 @@
 (let ((host-file (format "~/dotfiles/emacs.d/hosts/%s.el" system-name)))
   (if (file-exists-p host-file)
       (load host-file)))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;
-; package initialisation
-;
-
-; add melpa to the list of package repositories
-(require 'package)
-(add-to-list
- 'package-archives
- '("melpa" . "http://melpa.org/packages/")
- t)
-
-; By default, packages aren't initialised until after the init.el runs. We
-; force it to happen here, and then do the stuff which depends on them.
-(package-initialize)
 
 
 (require 'matrix-client nil t)
