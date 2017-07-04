@@ -281,7 +281,8 @@
   (global-set-key "\M-g"                'goto-line)
 
   (global-set-key "\C-z"                'undo)
-  
+  (global-set-key (kbd "C-S-w")         'delete-region)
+
   ; windows-up/down/left/right - change window
   (global-set-key [s-up]                'windmove-up)
   (global-set-key [s-down]              'windmove-down)
