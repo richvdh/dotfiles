@@ -2,19 +2,29 @@
 #
 # Earlier settings take priority over later ones
 
+# short names
 Host newbase
      HostName %h.openmarket.com
 
 Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1
     HostName %h.sw1v.org
 
+
+Host ares hermes hera juno mnemosyne themis eleutheria pheme homonioia freya
+    HostName %h.matrix.org
+
+# per-domain config
 Match host *.sw1v.org
+     ForwardAgent yes
+
+Match host *.matrix.org
      ForwardAgent yes
 
 Match host *.openmarket.com
      User richardv
      ForwardAgent yes
 
+# per-server config
 Match host martinbrock.org
      User richard
      ForwardAgent yes
