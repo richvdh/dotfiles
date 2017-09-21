@@ -52,8 +52,6 @@
 	 ( "\\.[vV]\\'" . verilog-mode )
 	 ( "\\.[tT]e[xX]\\'" . latex-mode )
 	 ( "\\.asm\\'" . asm-mode )
-	 ( "\\.pl\\'" . cperl-mode )
-	 ( "\\.ph\\'" . cperl-mode )
          ( "\\.ipp\\'" . c++-mode )
          ( "SConstruct\\'" . python-mode )
          ( "SConscript\\'" . python-mode )
@@ -69,6 +67,8 @@
                  ))
 
 
+;; prefer cperl-mode to perl-mode
+(defalias 'perl-mode 'cperl-mode)
 
 (setq make-backup-files nil)
 ;(redspace-mode t)
@@ -187,6 +187,12 @@
 	    (auto-fill-mode 1)
             )
 	  )
+
+(add-hook 'dns-mode-hook
+          (lambda()
+            (auto-fill-mode 0)
+            (setq indent-tabs-mode t)
+            (setq indent-line-function 'insert-tab)))
 
 (add-hook 'verilog-mode-hook
 	  (lambda ()
@@ -392,6 +398,7 @@
  '(column-number-mode t)
  '(cperl-indent-level 4)
  '(cperl-indent-parens-as-block t)
+ '(dns-mode-soa-auto-increment-serial nil)
  '(fill-column 79)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)

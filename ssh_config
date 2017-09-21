@@ -6,9 +6,8 @@
 Host newbase
      HostName %h.openmarket.com
 
-Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1
+Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1 lilah
     HostName %h.sw1v.org
-
 
 Host ares hermes hera juno mnemosyne themis eleutheria pheme homonioia freya
     HostName %h.matrix.org
