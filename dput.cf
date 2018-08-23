@@ -1,0 +1,16 @@
+[DEFAULT]
+default_host_main       = matrix
+
+[matrix]
+login                   = packages
+method                  = scp
+fqdn                    = ares.matrix.org
+incoming                = /home/packages/packages/debian/incoming
+post_upload_command     = ssh packages@ares.matrix.org 'cd ~/packages/debian && reprepro -V processincoming incoming'
+
+[matrix_staging]
+login                   = packages
+method                  = scp
+fqdn                    = ares.matrix.org
+incoming                = /home/packages/packages/debian_staging/incoming
+post_upload_command     = ssh packages@ares.matrix.org 'cd ~/packages/debian_staging && reprepro -V processincoming incoming'

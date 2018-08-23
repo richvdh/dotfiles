@@ -1,0 +1,9 @@
+# stuff for dch, dput, etc
+
+# this isn't recognised here by dch, so is set in .profile instead
+# DEBEMAIL="richard@matrix.org"
+DEBRELEASE_UPLOADER=dput
+DSCVERIFY_KEYRINGS="/etc/apt/trusted.gpg:~/.gnupg/pubring.gpg"
+
+# using gpg2 allows us to use the keyring
+DEBSIGN_PROGRAM=gpg2

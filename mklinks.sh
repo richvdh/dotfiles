@@ -73,3 +73,6 @@ link "hgrc/hgrc" ~/.hgrc
 link "bcrc" ~/.bcrc
 link "gdbinit" ~/.gdbinit
 link "upstart" ~/.config/upstart
+link "devscripts" ~/.devscripts
+link "dput.cf" ~/.dput.cf
+
