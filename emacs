@@ -6,7 +6,7 @@
 
 (set-face-background 'default "black")
 (set-face-foreground 'default "white")
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 84)
 
 (nconc load-path (mapcar 'expand-file-name
                          '("~/dotfiles/emacs.d/packages"
@@ -134,10 +134,15 @@
 	    (define-key c-mode-map [(control meta next)] 'c-end-of-defun)
             ))
 
-;(add-hook 'cperl-mode-hook
-;	  (lambda ()
+(add-hook 'cperl-mode-hook
+	  (lambda ()
+            ;; map ctrl-j to just do a newline. By default it takes return
+            ;; with it, so we have to bind that explicitly.
+            (define-key cperl-mode-map "\C-j" 'electric-indent-just-newline)
+            (define-key cperl-mode-map [return] 'newline)
 ;	    (define-key cperl-mode-map [backspace] 'cperl-electric-backspace)
-;	    (define-key cperl-mode-map "\^C\^X"	   'cperl-find-pods-heres)))
+;	    (define-key cperl-mode-map "\^C\^X"	   'cperl-find-pods-heres))
+            ))
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
@@ -417,12 +422,4 @@
 
 
 (require 'matrix-client nil t)
-
-
 (put 'narrow-to-region 'disabled nil)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
