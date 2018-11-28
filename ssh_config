@@ -3,25 +3,22 @@
 # Earlier settings take priority over later ones
 
 # short names
-Host newbase
-     HostName %h.openmarket.com
-
-Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1 lilah
+Host 19cw faith dawn giles gilesipmi osmc tara mrpointy storage1 lilah apps1 loftpi
     HostName %h.sw1v.org
 
-Host ares hermes hera juno mnemosyne themis eleutheria pheme homonioia freya
+Host ares hermes hera juno mnemosyne themis eleutheria pheme homonoia freya aphrodite cerberus hephaestus hebe juventas clio
     HostName %h.matrix.org
+
+Host ansible
+    HostName %h.i.vector.im
 
 # per-domain config
 Match host *.sw1v.org
-     ForwardAgent yes
+    ForwardAgent yes
 
-Match host *.matrix.org
-     ForwardAgent yes
-
-Match host *.openmarket.com
-     User richardv
-     ForwardAgent yes
+Match host *.matrix.org,*.vector.im
+    ForwardAgent yes
+    User richardv
 
 # per-server config
 Match host martinbrock.org
@@ -32,7 +29,7 @@ Match host gilesipmi.sw1v.org
      User ADMIN
      ServerAliveInterval 300
 
-Match host giles.sw1v.org,tara.sw1v.org
+Match host giles.sw1v.org,tara.sw1v.org,storage1.sw1v.org
     ProxyCommand ssh gw0.sw1v.org nc -w 90 %h %p
     ServerAliveInterval 30
 
@@ -41,3 +38,7 @@ Match host osmc.sw1v.org
 
 Host mrpointy.sw1v.org
     User root
+#
+#Host lilah lilah.sw1v.org
+#    ProxyCommand ssh faith.sw1v.org nc -w 90 %h %p
+#    ServerAliveInterval 30
