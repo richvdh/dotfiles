@@ -1,6 +1,7 @@
 [user]
         name = Richard van der Hoff
         email = richard@matrix.org
+        signingkey = 392A2BD3423D78FF
 
 [credential]
 	helper = cache
@@ -10,7 +11,7 @@
 	pager = true
 
 [pretty]
-        oneline2 = format:%h%d <%an> %ai %s
+        oneline2 = tformat:%C(yellow)%h%C(green)%d%C(reset) <%an> %ai %s
 
 [alias]
         logg = log --graph
@@ -24,6 +25,7 @@
         # push and set upstream
         pushu = !git push -u origin `git symbolic-ref --short HEAD`
 
+        amend = commit --no-verify --no-edit --amend
 
 [push]
         # make git only push the current branch by default
@@ -41,7 +43,12 @@
 # (as indeed it is if the included file is missing)
 [include]
         path = ~/.gitconfig.local
+
 [rerere]
 	enabled = true
+
 [gpg]
 	program = /usr/bin/gpg2
+
+[core]
+	attributesfile = /home/rav/dotfiles/gitattributes
