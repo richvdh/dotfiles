@@ -1,0 +1,8 @@
+# $HOME/.xsessionrc: sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc
+# before starting the wm
+
+# this undoes some double-scaling caused by changing the Custom DPI
+# setting (Settings Manager > Appearance > Fonts > Custom DPI setting)
+# to 192, which in turn is necessary to make *non* GDK apps (eg
+# emacs) use a sensible font size.
+export GDK_DPI_SCALE=0.5

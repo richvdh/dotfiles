@@ -50,6 +50,7 @@ hardlink()
     exit 1
 }
 
+link "emacs" ~/.emacs
 link "bash_aliases" ~/.bash_aliases
 link "bashrc" ~/.bashrc
 link "profile" ~/.profile
@@ -64,7 +65,6 @@ case `uname -o` in
         ;;
 esac
 
-link "emacs" ~/.emacs
 link "inputrc" ~/.inputrc
 link "lynxrc" ~/.lynxrc
 link "ssh_config" ~/.ssh/config
@@ -75,4 +75,4 @@ link "gdbinit" ~/.gdbinit
 link "upstart" ~/.config/upstart
 link "devscripts" ~/.devscripts
 link "dput.cf" ~/.dput.cf
-
+link "xsessionrc" ~/.xsessionrc
