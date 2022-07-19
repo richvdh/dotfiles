@@ -23,7 +23,6 @@ if [ -x "/usr/bin/keychain" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-# also things included by pip
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/gocode/bin:$PATH"
 
 export DEBFULLNAME='Richard van der Hoff'
@@ -73,4 +72,9 @@ if [ -d "$HOME/emsdk_portable" ]; then
    export PATH="/home/rav/emsdk_portable:/home/rav/emsdk_portable/emscripten/master:$PATH"
    export EM_CONFIG="/home/rav/.emscripten"
    export EMSCRIPTEN="/home/rav/emsdk_portable/emscripten/master"
+fi
+
+# add cargo to $PATH
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
 fi
