@@ -134,6 +134,11 @@ PROMPT_COMMAND='__git_ps1 "'$PS1'" "\$ "'
 
 stty -ixon
 
+# use gpg-agent for ssh auth if no existing ssh agent is running; the
+# gpg-agent should autolaunch thanks to systemd
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
 
 if [ -f $HOME/dotfiles/priv/bashrc ]; then
    . $HOME/dotfiles/priv/bashrc
