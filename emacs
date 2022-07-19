@@ -156,7 +156,7 @@
 
 (add-hook 'html-mode-hook
 	  (lambda ()
-	    (auto-fill-mode 1)))
+	    (auto-fill-mode 0)))
 
 (add-hook 'java-mode-hook
 	  (lambda ()
