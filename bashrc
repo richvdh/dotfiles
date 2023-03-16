@@ -121,6 +121,7 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=1
@@ -136,10 +137,14 @@ stty -ixon
 
 # use gpg-agent for ssh auth if no existing ssh agent is running; the
 # gpg-agent should autolaunch thanks to systemd
-if [ -z "$SSH_AUTH_SOCK" ]; then
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-fi
+# no longer needed on ubuntu 22.04
+#if [ -z "$SSH_AUTH_SOCK" ]; then
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#fi
 
-if [ -f $HOME/dotfiles/priv/bashrc ]; then
-   . $HOME/dotfiles/priv/bashrc
+[ -s $HOME/dotfiles/priv/bashrc ] && . $HOME/dotfiles/priv/bashrc
+[ -s $HOME/.cargo/env ] && . "$HOME/.cargo/env"
+
+if type -t direnv >/dev/null; then
+   eval "$(direnv hook bash)"
 fi

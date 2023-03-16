@@ -22,6 +22,12 @@ if [ -x "/usr/bin/keychain" ]; then
     eval `keychain --eval --inherit any`
 fi
 
+# time out on virtual terminals
+# this only kills shells left at a prompt, but it's better than nothing
+if [[ `tty` == /dev/tty* ]]; then
+    TMOUT=600
+fi
+
 # set PATH so it includes user's private bin if it exists
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/gocode/bin:$PATH"
 
@@ -73,6 +79,8 @@ if [ -d "$HOME/emsdk_portable" ]; then
    export EM_CONFIG="/home/rav/.emscripten"
    export EMSCRIPTEN="/home/rav/emsdk_portable/emscripten/master"
 fi
+
+export COMPLEMENT_DIR=$HOME/work/complement
 
 # add cargo to $PATH
 if [ -f "$HOME/.cargo/env" ]; then
