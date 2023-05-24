@@ -76,3 +76,4 @@ link "upstart" ~/.config/upstart
 link "devscripts" ~/.devscripts
 link "dput.cf" ~/.dput.cf
 link "xsessionrc" ~/.xsessionrc
+link "direnvrc" ~/.direnvrc
