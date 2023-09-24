@@ -32,7 +32,8 @@ fi
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/gocode/bin:$PATH"
 
 export DEBFULLNAME='Richard van der Hoff'
-export DEBEMAIL='launchpad@rvanderhoff.org.uk'
+#export DEBEMAIL='launchpad@rvanderhoff.org.uk'
+export DEBEMAIL='richard@matrix.org'
 
 export INPUTRC=$HOME/dotfiles/inputrc
 export LYNX_CFG=$HOME/dotfiles/lynx.cfg
@@ -54,8 +55,6 @@ export HOSTNAME=`hostname`
 if [ -f $HOME/dotfiles/profile.$HOSTNAME ]; then
    . $HOME/dotfiles/profile.$HOSTNAME
 fi
-
-export IPOD_MOUNTPOINT=/media/rav/RICHARD\'S\ I
 
 export GOPATH=$HOME/gocode
 
@@ -85,4 +84,11 @@ export COMPLEMENT_DIR=$HOME/work/complement
 # add cargo to $PATH
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
+fi
+
+# load pyenv stuff
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
